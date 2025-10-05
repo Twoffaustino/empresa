@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganga Guloso</title>
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="shortcut icon" href="imgp1/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="imgp1/logotipo.png.png" alt="Ganga Guloso Logo">
+    
+    </div>
+    <nav>
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="padaria.html">PADARIA</a></li>
+        <li><a href="pastelaria.html">PASTELARIA</a></li>
+        <li><a href="geladaria.html">GELADARIA</a></li>
+        <li><a href="#">LIVRO DE RECLAMAÇÃO</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SLIDER -->
+  <section class="slider">
+    <div class="slides">
+      <div class="slide active" style="background-image: url('imgp1/abertura1\ \(1\).jpeg');">
+        <h1>SEJA BEM VINDO <br> A GANGA GULOSO</h1>
+      </div>
+      <div class="slide" style="background-image: url('imgp1/abertura1\ \(5\).jpeg');">
+        <h1>QUALIDADE NO MÁXIMO</h1>
+      </div>
+      <div class="slide" style="background-image: url('imgp1/abertura1\ \(8\).jpeg');">
+        <h1>PREPARADO COM AMOR</h1>
+      </div>
+    </div>
+
+    <!-- Botões -->
+    <div class="controls">
+      <span class="prev">&#10094;</span>
+      <span class="next">&#10095;</span>
+    </div>
+  </section>
+
+  <!-- INFO -->
+  <section class="info">
+    <div class="card local">
+      <h3><i class="fas fa-map-marker-alt"></i> LOCALIZAÇÃO</h3>
+      <p>Bairro da Satec, antes da entrada do Instituto</p>
+    </div>
+    <div class="card eventos">
+      <h3><i class="fas fa-calendar-alt"></i> EVENTOS</h3>
+      <p>Festa 1 ano da GANGA GULOSO 12.10.2025</p>
+    </div>
+    <div class="card promo">
+      <h3>PROMOÇÃO</h3>
+      <p>20% de desconto no gelado canudo</p>
+      <img src="imgp4/gelado_canudo-removebg-preview.png" alt="Promoção pastelaria">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="contactos">
+      <h3>CONTATOS</h3>
+      <p><i class="fas fa-phone"></i> +244 921 364 462</p>
+      <p><i class="fas fa-envelope"></i> ganga.guloso@outlook.com</p>
+    </div>
+    <div class="social">
+      <a target="_blank" href="https://www.facebook.com/share/1D5JgmnHHF/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // MENU RESPONSIVO
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    // FECHAR MENU AO CLICAR NUM LINK
+    const links = document.querySelectorAll('#nav-links a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+      });
+    });
+
+    // SLIDER
+    let slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    function showSlide(i) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[i].classList.add('active');
+    }
+
+    document.querySelector('.next').addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    });
+
+    document.querySelector('.prev').addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    });
+
+    // Automático
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }, 5000);
+  </script>
+
+</body>
+</html>
